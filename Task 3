@@ -1,1 +1,30 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+
+        int balance = 0;
+        boolean valid = true;
+
+        for (char ch : s.toCharArray()) {
+            if (ch == '{') {
+                balance++;
+            } else if (ch == '}') {
+                balance--;
+                if (balance < 0) {
+                    valid = false;
+                    break;
+                }
+            }
+        }
+
+        if (balance != 0) {
+            valid = false;
+        }
+
+        System.out.println(valid ? "YES" : "NO");
+    }
+}
 
