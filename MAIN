@@ -4,20 +4,33 @@ public class Main {
   public static void main(String[] args) {
 
     List<Integer> numbers = new ArrayList<>();
-
     for (int i = 0; i <= 146; i++) {
       numbers.add(i);
     }
 
+    int chosen = 144;
+
+
+    numbers.remove((Integer) chosen);
     Collections.shuffle(numbers);
-    List<Integer> stage1 = new ArrayList<>(numbers.subList(0, 100));
-
+    List<Integer> stage1 = new ArrayList<>(numbers.subList(0, 99)); // 99 случайных
+    stage1.add(chosen);
     Collections.shuffle(stage1);
-    List<Integer> stage2 = new ArrayList<>(stage1.subList(0, 50));
 
+
+    stage1.remove((Integer) chosen);
+    Collections.shuffle(stage1);
+    List<Integer> stage2 = new ArrayList<>(stage1.subList(0, 49));
+    stage2.add(chosen);
     Collections.shuffle(stage2);
-    List<Integer> stage3 = new ArrayList<>(stage2.subList(0, 5));
+
     
+    stage2.remove((Integer) chosen);
+    Collections.shuffle(stage2);
+    List<Integer> stage3 = new ArrayList<>(stage2.subList(0, 4));
+    stage3.add(chosen);
+    Collections.shuffle(stage3);
+
     System.out.println("5: " + stage3);
   }
 }
