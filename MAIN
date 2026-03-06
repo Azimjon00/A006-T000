@@ -1,0 +1,37 @@
+import java.util.*;
+
+public class Main {
+  public static void main(String[] args) {
+
+    List<Integer> numbers = new ArrayList<>();
+    for (int i = 0; i <= 146; i++) {
+      numbers.add(i);
+    }
+
+    int chosen = 144;
+    Random random = new Random();
+
+    Collections.shuffle(numbers);
+    List<Integer> stage1 = new ArrayList<>(numbers.subList(0, 99));
+    if (!stage1.contains(chosen)) {
+      stage1.add(chosen);
+    }
+
+    Collections.shuffle(stage1);
+    List<Integer> stage2 = new ArrayList<>(stage1.subList(0, 49));
+    if (!stage2.contains(chosen)) {
+      stage2.add(chosen);
+    }
+
+    Collections.shuffle(stage2);
+    List<Integer> stage3 = new ArrayList<>(stage2.subList(0, 4));
+    if (!stage3.contains(chosen)) {
+      stage3.add(chosen);
+    }
+
+    System.out.println("Этап 1 (100): " + stage1);
+    System.out.println("Этап 2 (50): " + stage2);
+    System.out.println("Этап 3 (5): " + stage3);
+  }
+}
+  
